@@ -1545,6 +1545,12 @@ $.fn.sorted = function(options) {
         return 0;
       }
 
+      // Use the user-supplied compare to sort the list
+      if ($.isFunction(opts.compare)) {
+        return opts.compare(a,b);
+      }
+
+      // Otherwise, just compare them using the supplied by
       var valA = opts.by($(a));
       var valB = opts.by($(b));
 

@@ -1558,6 +1558,8 @@ $.fn.sorted = function(options) {
 
       return 0;
     });
+  } else if ($.isFunction(opts.compare)) {
+    arr.sort(opts.compare);
   }
 
   // Revert to the original array if necessary
